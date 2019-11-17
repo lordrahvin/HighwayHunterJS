@@ -41,23 +41,6 @@ function registerImageLoaded (imageCount) {
 }
 
 function imagesHaveBeenLoaded() {
-    let x = 150;
-    let y = 250;
-    let size = 20;
-    //ctx.fillStle = "black";
-    //ctx.fillRect(0,0,640,640);
-    //ctx.fillStyle = "snow";
-    //ctx.fillRect(10,10,620,620);
-    for (let i=0; i<images.length; i++) {
-        x=x+25; 
-        ctx.drawImage(images[i], x, y, 75, 75);
-    }
-
-    for (let anImage of images)
-    {
-        console.log(anImage);
-        console.log(anImage['src']);
-        ctx.drawImage(anImage, 75, 75);
-    }
+    SetupGameLoop();
 }
 
