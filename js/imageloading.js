@@ -1,11 +1,11 @@
 
-let images = []
+let gameImages = []
 
 let imagesToLoad = [
       { name: "road", path:"", filename: "road.png"},
-      //{ name: "grass", path:"images\\", filename: "grass.png"},
-      //{ name: "road_left", path:"images\\", filename: "road_left.png"},
-      //{ name: "road_right", path:"images\\", filename: "road_right.png"}
+      { name: "grass", path:"images\\", filename: "grass.png"},
+      { name: "road_left", path:"images\\", filename: "road_left.png"},
+      { name: "road_right", path:"images\\", filename: "road_right.png"}
 ]
 
 function beginLoadingImages (imageObjectArray) {
@@ -29,9 +29,9 @@ function loadImages (src, imageCount) {
         fileArray.push(src);
     for(let i = 0; i<fileArray.length; i++)
     {
-        images[i] = new Image();
-        images[i].onload = registerImageLoaded(imageCount);
-        images[i].src = fileArray[i];
+        gameImages[i] = new Image();
+        gameImages[i].onload = registerImageLoaded(imageCount);
+        gameImages[i].src = fileArray[i];
     }
 }
 
