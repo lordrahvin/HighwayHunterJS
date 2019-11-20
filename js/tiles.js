@@ -12,7 +12,7 @@ function TileType (type, image, friction, offRoad, obstacle, hazard, size) {
     this.size = size || tileSize;
 };
 
-function createTiles () {
+function initializeTileTypes () {
     tileTypes.push(new TileType("Road", gameImages[0], 0, false, false, false, tileSize));
     tileTypes.push(new TileType("Grass", gameImages[1], 0, true, false, false, tileSize));
 }

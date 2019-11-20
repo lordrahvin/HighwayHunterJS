@@ -5,7 +5,3 @@ window.onload = function() {
     beginLoadingImages(imagesToLoad);
 }
 
-function moveEverything() {
-
-}
-
