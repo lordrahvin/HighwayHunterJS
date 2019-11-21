@@ -20,6 +20,7 @@ function Grid() {
         return Math.floor(coord / window.grid.tileSize) + 1;
     }
     window.grid.getGridY = function(coord){
+        //seperate "Y" function because Y coordinates can go off screen top and bottom
         return Math.floor(coord / window.grid.tileSize) + 21;
     }
     window.grid.getWorldX = function(gridCoord)
@@ -28,6 +29,7 @@ function Grid() {
     }
     window.grid.getWorldY = function(gridCoord)
     {
+        //seperate "Y" function because Y coordinates can go off screen top and bottom
         return Math.floor((gridCoord-21) * window.grid.tileSize);
     }
 }
