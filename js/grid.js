@@ -1,26 +1,34 @@
 function Grid() {
-    this.name = "Grid";
-    this.cameraScrollingSpeed = 0;
-    this.startingWorldCoord = {x:10,y:10}
-    this.PercentOfGridOnScreen = 1/3;
-    this.tileSize = 46;
-    this.width = canvas.width;
-    this.height = canvas.height / this.PercentOfGridOnScreen;
-    this.numRows = this.height/this.tileSize;
-    this.numCols = this.width/this.tileSize;
-    this.border = {right:470, left:10, top:10,bottom:470}
-    this.getTileID = function (col, row) {
+    window.grid.name = "Grid";
+    window.grid.cameraScrollingSpeed = 0;
+    window.grid.startingWorldCoord = {x:10,y:10}
+    window.grid.PercentOfGridOnScreen = 1/3;
+    window.grid.tileSize = 92;
+    window.grid.width = canvas.width;
+    window.grid.height = canvas.height / window.grid.PercentOfGridOnScreen;
+    window.grid.numRows = window.grid.height/window.grid.tileSize;
+    window.grid.numCols = window.grid.width/window.grid.tileSize;
+    window.grid.border = {right:470, left:10, top:10,bottom:470}
+    window.grid.getTileID = function (col, row) {
         return (col + this.numCols * (row-Math.floor(this.numRows * this.PercentOfGridOnScreen)))
     }
-    this.displayStats = function (){
+    window.grid.displayStats = function (){
         console.log (this.name, this.width + " x " + this.height)
         console.log ("tiles: " + col+this.numCols*this.numRows, "   size: " + this.tileSize );
     }
-    this.getX = function(coord){
-        return Math.floor(coord / canvas.width);
+    window.grid.getGridX = function(coord){
+        return Math.floor(coord / window.grid.tileSize) + 1;
     }
-    this.getY = function(coord){
-        return Math.floor(coord / canvas.height);
+    window.grid.getGridY = function(coord){
+        return Math.floor(coord / window.grid.tileSize) + 21;
+    }
+    window.grid.getWorldX = function(gridCoord)
+    {
+        return Math.floor((gridCoord-1) * window.grid.tileSize);
+    }
+    window.grid.getWorldY = function(gridCoord)
+    {
+        return Math.floor((gridCoord-21) * window.grid.tileSize);
     }
 }
 
@@ -67,7 +75,7 @@ GridSpace = function(tileType, position, active, size) {
 function CreateGrid()
 {
     //let gridCoord = {x:0, y:0}
-    let grid = {}
+    window.grid = {}
     Grid.call(grid);
     //let testGridSpace = new GridSpace(tileTypes[0], {x:100, y:100}, true)
     return grid

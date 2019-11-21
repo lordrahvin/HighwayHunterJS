@@ -19,13 +19,16 @@ function drawBorders()
 
 function drawMouseCoord()
 {
-    grid = window.grid;
-    x = input.mouseX;
-    y = input.mouseY;
-    gridX = grid.getX(x);
-    gridY = grid.getY(y);
-    
-    textToDisplay = (`${x}, ${y} : ${gridX}, ${gridY}`);
-    //textToDisplay = x + ', ' + input.mouseY + " : " + grid.getX(input.mouseX) + ", " + grid.getY(input.mouseY);
-    drawText(textToDisplay, input.mouseX, input.mouseY, 'green');
- }
+    let x = input.mouseX; 
+    let y = input.mouseY;
+    let gridX = window.grid.getGridX(x); 
+    let gridY = window.grid.getGridY(y);
+    let topText = (`${x}, ${y}`);
+    let botText = (`${gridX}, ${gridY}`);
+    drawText(topText, input.mouseX, input.mouseY, 'green');
+    drawText(botText, input.mouseX, input.mouseY+30, 'green');
+    let startX = window.grid.getWorldX(gridX);
+    let startY = window.grid.getWorldY(gridY);
+    let size = window.grid.tileSize;
+    drawRect(startX, startY, size, size, 'red');
+}
