@@ -3,7 +3,7 @@ function Grid() {
     window.grid.cameraScrollingSpeed = 0;
     window.grid.startingWorldCoord = {x:10,y:10}
     window.grid.PercentOfGridOnScreen = 1/3;
-    window.grid.tileSize = 92;
+    window.grid.tileSize = 46;
     window.grid.width = canvas.width;
     window.grid.height = canvas.height / window.grid.PercentOfGridOnScreen;
     window.grid.numRows = window.grid.height/window.grid.tileSize;
